@@ -3,7 +3,7 @@
 		"outDir": "./dist/",
 		"noImplicitAny": true,
 		"target": "es5",
-		"lub": [
+		"lib": [
 			"dom",
 			"es5",
 			"es6"

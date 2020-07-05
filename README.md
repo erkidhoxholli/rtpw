@@ -12,4 +12,5 @@
 * theme support in styled components
 * add support for lint-staged "pre-commit" hook
 * use suspense and lazy loading
+* bundle splitting management 
 * hot reloading (good to experiment with Fast refresh feature)
