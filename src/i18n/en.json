@@ -1,0 +1,12 @@
+{
+  "app.general.name": "Rimac assignment",
+  "app.general.error": "Something went wrong. Reload the page",
+  "app.general.notFound": "Not found",
+
+  "app.home.title": "Home",
+  "app.home.repo.noDescription": "No description available",
+  "app.home.repo.sortByName": "Sort by name:",
+
+  "app.about.title": "About",
+  "app.about.description": "Create a React application using TypeScript that connects to the GitHub API."
+}

@@ -1,0 +1,25 @@
+query getGreeting($username: String!, $sortByName: OrderDirection = ASC) {
+    user(login: $username) {
+        id
+        name
+        avatarUrl
+        bio
+        company
+        createdAt
+        email
+        location
+        url
+        repositories(last: 100, orderBy: {field: NAME, direction: $sortByName}) {
+            edges {
+                node {
+                    id
+                    name
+                    description
+                    url
+                    createdAt
+                }
+            }
+        }
+    }
+}
+

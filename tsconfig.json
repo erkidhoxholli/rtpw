@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"outDir": "./dist/",
+		"noImplicitAny": true,
+		"target": "es5",
+		"lub": [
+			"dom",
+			"es5",
+			"es6"
+		],
+		"jsx": "react",
+		"allowJs": true,
+		"moduleResolution": "node",
+		"esModuleInterop": true,
+		"resolveJsonModule": true
+	}
+}
