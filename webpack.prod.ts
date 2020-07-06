@@ -3,7 +3,7 @@ import webpack from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: './dist/index.html',
+    template: './index.html',
     filename: 'index.html',
 });
 

@@ -1,8 +1,6 @@
 .env
 /node_modules
-/dist/main.js
-/dist/main.js.map
-/dist/bundle.js
+/dist
 .idea
 .DS_Store
 npm-debug.log

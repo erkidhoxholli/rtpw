@@ -4,7 +4,7 @@ import HtmlWebPackPlugin from 'html-webpack-plugin';
 const Dotenv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
-    template: './dist/index.html',
+    template: './index.html',
 });
 
 const config: webpack.Configuration = {
