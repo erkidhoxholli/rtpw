@@ -10,6 +10,7 @@ const Wrapper = styled.div`
     justify-content: center;
     background-color: ${Colors.lightGray};
     border-radius: ${Dimensions.radius.medium};
+    margin-top: ${Dimensions.spaces.medium};
 `;
 const Message = styled.h4`
     color: ${Colors.white};

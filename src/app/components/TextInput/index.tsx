@@ -13,6 +13,7 @@ const Wrapper = styled.input`
     height: 30px;
     border-radius: ${Dimensions.radius.small};
     border: 1px solid ${Colors.lightGray};
+    padding: ${Dimensions.spaces.small};
 `;
 
 const TextInput = ({ placeholder, value, onChange }: TextInputProps) => (

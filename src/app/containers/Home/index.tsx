@@ -12,15 +12,47 @@ import Spinner from '../../components/Spinner';
 import styled from 'styled-components';
 import Repos from '../../components/Repos';
 import { doesUserExist } from './utils';
-import NotFound from '../../components/NotFound';
+
 import Sort, { SortByEnum } from '../../components/Repos/Sort';
+import Card from '../../components/Card';
+import Dimensions from '../../constants/dimensions';
+import NotFound from '../../components/NotFound';
+import media from '../../constants/media';
 
 const Wrapper = styled.div`
     display: flex;
+    flex: 1;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 `;
+
+const Left = styled.div`
+    display: flex;
+    flex: 1.5;
+`;
+
+const Right = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+`;
+
+const SearchPanel = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+`;
+
+const UserPanel = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin-top: ${Dimensions.spaces.medium};
+
+    ${media.phone`
+        flex-direction: column;
+    `}
+`;
+
 const HomeContainer = () => {
     const intl = useIntl();
     const [search, setSearch] = useState('erkidhoxholli');
@@ -33,6 +65,7 @@ const HomeContainer = () => {
     const { loading, error, data } = useQuery(queryReposByUsername, {
         variables: { username: search, sortByName },
     });
+
     const isUserFound = doesUserExist(error);
 
     if (loading) return <Spinner />;
@@ -44,22 +77,31 @@ const HomeContainer = () => {
         },
     } = data;
 
+    const sorterValue = sortByName === SortByEnum.ASC ? SortByEnum.DESC : SortByEnum.ASC;
+
     return (
         <Wrapper>
             <Helmet>
                 <title>{intl.formatMessage({ id: 'app.home.title' })}</title>
             </Helmet>
+            <SearchPanel>
+                <TextInput value={search} onChange={(evt) => debouncedSearch(evt.target.value)} />
+            </SearchPanel>
 
-            <TextInput value={search} onChange={(evt) => debouncedSearch(evt.target.value)} />
             {isUserFound ? (
-                <>
-                    <UserInfo {...userInfo} />
-                    <Sort
-                        sortByName={sortByName}
-                        onClick={() => setSortByName(sortByName === SortByEnum.ASC ? SortByEnum.DESC : SortByEnum.ASC)}
-                    />
-                    <Repos data={edges} />
-                </>
+                <UserPanel>
+                    <Left>
+                        <Card>
+                            <UserInfo {...userInfo} />
+                        </Card>
+                    </Left>
+                    <Right>
+                        <Card>
+                            <Sort sortByName={sorterValue} onClick={() => setSortByName(sorterValue)} />
+                            <Repos data={edges} />
+                        </Card>
+                    </Right>
+                </UserPanel>
             ) : (
                 <NotFound />
             )}

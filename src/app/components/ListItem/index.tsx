@@ -10,11 +10,13 @@ type ListItemProps = {
 };
 
 const Wrapper = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     border-radius: ${Dimensions.radius.medium};
     border: 1px solid ${Colors.darkGreen};
     padding: ${Dimensions.spaces.xsmall} ${Dimensions.spaces.large};
-    margin-bottom: ${Dimensions.spaces.small};
-    width: 100%;
+    margin: ${Dimensions.spaces.small} 0px;
 `;
 
 const Title = styled.h4`

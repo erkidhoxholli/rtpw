@@ -16,26 +16,32 @@ type ListItemProps = {
 
 const Wrapper = styled.div`
     display: flex;
+    flex: 1;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 `;
 
-const Text = styled.h4`
+const Text = styled.p`
     font-size: ${Dimensions.fontSize.large};
     font-weight: 300;
-    margin-top: ${Dimensions.spaces.xsmall};
+    margin: ${Dimensions.spaces.xxsmall} 0px;
 `;
 
+const Info = styled.div`
+    align-items: flex-start;
+    margin-top: ${Dimensions.spaces.medium};
+`;
 const UserInfo = ({ name, bio, company, location, url, email, avatarUrl }: ListItemProps) => (
     <Wrapper>
         <Image src={avatarUrl} />
-        <Text>{name}</Text>
-        {email && <Text>{email}</Text>}
-        {bio && <Text>{bio}</Text>}
-        {company && <Text>{company}</Text>}
-        {location && <Text>{location}</Text>}
-        <Text>{url}</Text>
+        <Info>
+            <Text>{name}</Text>
+            {email && <Text>{email}</Text>}
+            {bio && <Text>{bio}</Text>}
+            {company && <Text>{company}</Text>}
+            {location && <Text>{location}</Text>}
+            <Text>{url}</Text>
+        </Info>
     </Wrapper>
 );
 

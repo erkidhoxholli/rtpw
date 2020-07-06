@@ -1,5 +1,6 @@
 const Dimensions = {
     spaces: {
+        xxsmall: '2px',
         xsmall: '5px',
         small: '10px',
         medium: '15px',
@@ -22,6 +23,8 @@ const Dimensions = {
     containerWidth: {
         small: '360px',
         normal: '480px',
+        large: '680px',
+        xlarge: '920px',
     },
     imageWidth: {
         xsmall: '64px',

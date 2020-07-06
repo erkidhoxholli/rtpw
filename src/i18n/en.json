@@ -1,7 +1,7 @@
 {
   "app.general.name": "Rimac assignment",
   "app.general.error": "Something went wrong. Reload the page",
-  "app.general.notFound": "Not found",
+  "app.general.notFound": "Not user found with this username. Please search again",
 
   "app.home.title": "Home",
   "app.home.repo.noDescription": "No description available",
