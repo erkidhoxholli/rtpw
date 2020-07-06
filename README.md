@@ -1,3 +1,5 @@
+#####
+
 #### How to run
 * git clone https://gitlab.com/erkidhoxholli/rimac-react
 * cd ./rimac-react
@@ -12,5 +14,5 @@
 * theme support in styled components
 * add support for lint-staged "pre-commit" hook
 * use suspense and lazy loading
-* better production pipeline (bundle splitting, minification etc)
+* better production pipeline (bundle splitting, minification, optimization etc)
 * add pagination, better strict typing support, testing
