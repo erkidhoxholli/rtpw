@@ -1,8 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const Dotenv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
     template: './dist/index.html',
@@ -41,7 +39,7 @@ const config: webpack.Configuration = {
             },
         ],
     },
-    plugins: [htmlPlugin, new Dotenv()],
+    plugins: [htmlPlugin],
 };
 
 export default config;
