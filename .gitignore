@@ -2,6 +2,7 @@
 /node_modules
 /dist/main.js
 /dist/main.js.map
+/dist/bundle.js
 .idea
 .DS_Store
 npm-debug.log

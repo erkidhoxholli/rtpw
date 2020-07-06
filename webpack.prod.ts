@@ -6,7 +6,7 @@ const Dotenv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
     template: './dist/index.html',
-    filename: './dist/index.html',
+    filename: 'index.html',
 });
 
 const config: webpack.Configuration = {
@@ -33,6 +33,11 @@ const config: webpack.Configuration = {
                         loader: 'ts-loader',
                     },
                 ],
+            },
+            {
+                test: /\.(graphql|gql)$/,
+                exclude: /node_modules/,
+                loader: 'graphql-tag/loader',
             },
         ],
     },
