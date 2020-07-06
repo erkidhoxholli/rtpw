@@ -1,8 +1,9 @@
-import React, { Component } from 'React';
+import React, { Component } from 'react';
 import { IntlShape } from 'react-intl';
 import { injectIntl } from 'react-intl';
 
 import ErrorMessage from '../ErrorMessage';
+
 type ErrorBoundaryProps = {
     children: React.ReactNode;
     intl: IntlShape;
