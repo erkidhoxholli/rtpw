@@ -1,15 +1,14 @@
 {
-	"compilerOptions": {
-		"outDir": "./dist/",
-		"noImplicitAny": true,
-		"target": "es5",
-		"lib": ["es2017", "dom"],
-		"jsx": "react",
-		"allowJs": true,
-		"moduleResolution": "node",
-		"esModuleInterop": true,
-		"resolveJsonModule": true
-
-	},
-	"include": ["src/**/*"]
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "noImplicitAny": true,
+        "target": "es5",
+        "lib": ["es2017", "dom"],
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "resolveJsonModule": true
+    },
+    "include": ["src/**/*"]
 }

@@ -1,12 +1,12 @@
 {
-  "name": "e2e",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "cypress:open": "cypress open"
-  },
-  "devDependencies": {
-    "cypress": "^4.10.0"
-  }
+    "name": "e2e",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "cypress:open": "cypress open"
+    },
+    "devDependencies": {
+        "cypress": "^4.10.0"
+    }
 }

@@ -9,7 +9,7 @@ query getGreeting($username: String!, $sortByName: OrderDirection = ASC) {
         email
         location
         url
-        repositories(last: 100, orderBy: {field: NAME, direction: $sortByName}) {
+        repositories(last: 100, orderBy: { field: NAME, direction: $sortByName }) {
             edges {
                 node {
                     id
@@ -22,4 +22,3 @@ query getGreeting($username: String!, $sortByName: OrderDirection = ASC) {
         }
     }
 }
-
