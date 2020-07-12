@@ -1,7 +1,6 @@
 import React from 'react';
-
 import ListItem from '../ListItem';
-import styled from 'styled-components';
+import { styled } from '../../constants/theme';
 
 const Items = styled.div`
     display: flex;

@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import Colors from '../../constants/colors';
+import { styled } from '../../constants/theme';
 import Dimensions from '../../constants/dimensions';
 import { FormattedMessage } from 'react-intl';
 
@@ -14,7 +13,7 @@ const Wrapper = styled.div`
     flex: 1;
     flex-direction: column;
     border-radius: ${Dimensions.radius.medium};
-    border: 1px solid ${Colors.darkGreen};
+    border: ${(props) => `1px solid ${props.theme.colors.darkGreen}`};
     padding: ${Dimensions.spaces.xsmall} ${Dimensions.spaces.large};
     margin: ${Dimensions.spaces.small} 0px;
 `;

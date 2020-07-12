@@ -9,7 +9,6 @@ describe('Button', () => {
     };
     test('should render correctly', () => {
         const component = renderer.create(<Button {...props} />);
-
         expect(component.toJSON()).toMatchSnapshot();
     });
 });

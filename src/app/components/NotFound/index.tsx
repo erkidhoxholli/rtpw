@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import Colors from '../../constants/colors';
+import { styled } from '../../constants/theme';
 import Dimensions from '../../constants/dimensions';
 import { FormattedMessage } from 'react-intl';
 
@@ -8,12 +7,12 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: ${Colors.lightGray};
+    background-color: ${(props) => `${props.theme.colors.lightGray}`};
     border-radius: ${Dimensions.radius.medium};
     margin-top: ${Dimensions.spaces.medium};
 `;
 const Message = styled.h4`
-    color: ${Colors.white};
+    color: ${(props) => `${props.theme.colors.white}`};
     font-size: ${Dimensions.fontSize.medium};
 `;
 

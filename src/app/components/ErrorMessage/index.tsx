@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '../../constants/theme';
 import Colors from '../../constants/colors';
 import Dimensions from '../../constants/dimensions';
 
@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: ${Colors.errorRed};
+    background-color: ${(props) => props.theme.colors.errorRed};
     border-radius: ${Dimensions.radius.medium};
 `;
 const Message = styled.h4`

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import { styled } from '../../constants/theme';
 import { FormattedMessage } from 'react-intl';
 import Colors from '../../constants/colors';
 import Dimensions from '../../constants/dimensions';
@@ -15,8 +15,8 @@ type SortProps = {
 };
 
 const Wrapper = styled.button`
-    background-color: ${Colors.green};
-    border: 1px solid ${Colors.green};
+    background-color: ${(props) => `${props.theme.colors.green}`};
+    border: ${(props) => `1px solid ${props.theme.colors.green}`};
     border-radius: ${Dimensions.radius.small};
     color: ${Colors.white};
     cursor: pointer;

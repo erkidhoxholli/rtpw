@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
 import Colors from '../../constants/colors';
 import Dimensions from '../../constants/dimensions';
+import { styled, Theme } from '../../constants/theme';
 
 type NavbarProps = {
     title: string;
@@ -25,11 +25,12 @@ const Wrapper = styled.nav`
 `;
 
 type LinkProps = {
+    theme: Theme;
     active: number; // https://github.com/styled-components/styled-components/issues/1198
 };
 
 const StyledLink = styled(Link)`
-    ${(props: LinkProps) => props.active && `border-bottom: 1px solid ${Colors.white}`}
+    ${(props: LinkProps) => props.active && `border-bottom: 1px solid ${props.theme.colors.white}`}
 `;
 
 export const Navbar = ({ title }: NavbarProps) => {

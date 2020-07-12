@@ -1,6 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-import Colors from '../../constants/colors';
+import { styled } from '../../constants/theme';
 
 // https://gist.github.com/knowbody/578b35164b69e867ed4913423f6bed30
 const SpinnerSVG = styled.svg`
@@ -10,7 +9,7 @@ const SpinnerSVG = styled.svg`
     height: 50px;
 
     & .path {
-        stroke: ${Colors.darkGreen};
+        stroke: ${(props) => `${props.theme.colors.darkGreen}`};
         stroke-linecap: round;
         animation: dash 1.5s ease-in-out infinite;
     }

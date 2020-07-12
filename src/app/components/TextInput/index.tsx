@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import Colors from '../../constants/colors';
+import { styled } from '../../constants/theme';
+
 import Dimensions from '../../constants/dimensions';
 
 type TextInputProps = {
@@ -12,7 +12,7 @@ type TextInputProps = {
 const Wrapper = styled.input`
     height: 30px;
     border-radius: ${Dimensions.radius.small};
-    border: 1px solid ${Colors.lightGray};
+    border: ${(props) => `1px solid ${props.theme.colors.lightGray}`};
     padding: ${Dimensions.spaces.small};
 `;
 

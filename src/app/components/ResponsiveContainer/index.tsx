@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '../../constants/theme';
 import Dimensions from '../../constants/dimensions';
 import media from '../../constants/media';
 
