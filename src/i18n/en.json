@@ -1,4 +1,5 @@
 {
+  "components.about.searchLabel": "Search by github username:",
   "components.navbar.about": "About",
   "components.navbar.home": "Home",
   "components.repos.listItem.noDescription": "No description found.",

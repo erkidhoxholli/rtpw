@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
 import TextInput from '../../components/TextInput';
 import { useDebouncedCallback } from 'use-debounce';
+import { FormattedMessage } from 'react-intl';
 
 import UserInfo from '../../components/UserInfo';
 import { useQuery } from '@apollo/react-hooks';
@@ -86,7 +87,11 @@ const HomeContainer = () => {
                 <title>{intl.formatMessage(messages.title)}</title>
             </Helmet>
             <SearchPanel>
-                <TextInput value={search} onChange={(evt) => debouncedSearch(evt.target.value)} />
+                <TextInput
+                    label={<FormattedMessage {...messages.searchLabel} />}
+                    value={search}
+                    onChange={(evt) => debouncedSearch(evt.target.value)}
+                />
             </SearchPanel>
 
             {isUserFound ? (

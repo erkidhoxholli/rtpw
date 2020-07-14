@@ -11,8 +11,5 @@
 -   `yarn dev`
 
 #### Recommended improvements
-
--   add floating label search input and better search input (focus)
--   use suspense and lazy loading
--   better production pipeline (bundle splitting, minification, optimization etc)
--   add pagination, better strict typing support, testing
+-   add pagination
+-   focus search
