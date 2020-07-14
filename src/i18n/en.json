@@ -1,7 +1,7 @@
 {
+  "components.navbar.about": "About",
+  "components.navbar.home": "Home",
   "components.repos.listItem.noDescription": "No description found.",
-  "components.repos.navbar.about": "About",
-  "components.repos.navbar.home": "Home",
   "components.repos.notFound": "No user found with this username. Please search again!",
   "components.repos.sortByName": "Sort by name:",
   "containers.about.description": "Create a React application using TypeScript that connects to the GitHub API.",

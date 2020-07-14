@@ -2,11 +2,11 @@ import { defineMessages } from 'react-intl';
 
 const messages = defineMessages({
     home: {
-        id: 'components.repos.navbar.home',
+        id: 'components.navbar.home',
         defaultMessage: 'Home',
     },
     about: {
-        id: 'components.repos.navbar.about',
+        id: 'components.navbar.about',
         defaultMessage: 'About',
     },
 });
