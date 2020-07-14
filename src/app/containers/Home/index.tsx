@@ -20,6 +20,7 @@ import Dimensions from '../../constants/dimensions';
 import NotFound from '../../components/NotFound';
 import media from '../../constants/media';
 import messages from './messages';
+import Pagination from '../../components/Pagination';
 
 const Wrapper = styled.div`
     display: flex;
@@ -54,19 +55,23 @@ const UserPanel = styled.div`
         flex-direction: column;
     `}
 `;
+const PER_PAGE = 5;
+const DEBOUNCE_DELAY = 250;
 
 const HomeContainer = () => {
     const intl = useIntl();
     const [search, setSearch] = useState('erkidhoxholli');
+    const [page, setPage] = useState(1);
+    const [cursor, setCursor] = useState(null);
     const [sortByName, setSortByName] = useState(SortByEnum.ASC);
+
+    const { loading, error, data } = useQuery(queryReposByUsername, {
+        variables: { username: search, sortByName, perPage: PER_PAGE, afterCursor: cursor },
+    });
 
     const [debouncedSearch] = useDebouncedCallback((value: string) => {
         setSearch(value);
-    }, 250);
-
-    const { loading, error, data } = useQuery(queryReposByUsername, {
-        variables: { username: search, sortByName },
-    });
+    }, DEBOUNCE_DELAY);
 
     const isUserFound = doesUserExist(error);
 
@@ -105,6 +110,17 @@ const HomeContainer = () => {
                         <Card>
                             <Sort sortByName={sorterValue} onClick={() => setSortByName(sorterValue)} />
                             <Repos data={edges} />
+                            <Pagination
+                                perPage={5}
+                                currentPage={page}
+                                onPageChange={(page) => {
+                                    setPage(page);
+                                    const cursor = data.user.repositories.edges[PER_PAGE - 1].cursor;
+
+                                    if (page === 1) setCursor(null);
+                                    else setCursor(cursor);
+                                }}
+                            />
                         </Card>
                     </Right>
                 </UserPanel>

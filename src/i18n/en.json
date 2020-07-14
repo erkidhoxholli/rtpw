@@ -2,6 +2,8 @@
   "components.about.searchLabel": "Search by github username:",
   "components.navbar.about": "About",
   "components.navbar.home": "Home",
+  "components.pagination.next": "Next",
+  "components.pagination.previous": "Previous",
   "components.repos.listItem.noDescription": "No description found.",
   "components.repos.notFound": "No user found with this username. Please search again!",
   "components.repos.sortByName": "Sort by name:",

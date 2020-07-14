@@ -11,5 +11,4 @@
 -   `yarn dev`
 
 #### Recommended improvements
--   add pagination
--   focus search
+-   search/pagination improvements and refactoring
