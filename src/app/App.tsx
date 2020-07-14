@@ -16,7 +16,7 @@ const App = () => {
     return (
         <ThemeProvider theme={defaultTheme}>
             <GlobalStyle />
-            <Navbar title={intl.formatMessage({ id: 'app.general.name' })} />
+            <Navbar />
             <ResponsiveContainer>
                 <Switch>
                     <Route exact path="/" component={HomeContainer} />

@@ -3,10 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import Colors from '../../constants/colors';
 import Dimensions from '../../constants/dimensions';
 import { styled, Theme } from '../../constants/theme';
-
-type NavbarProps = {
-    title: string;
-};
+import messages from './messages';
+import { FormattedMessage } from 'react-intl';
 
 const Wrapper = styled.nav`
     height: 40px;
@@ -33,16 +31,16 @@ const StyledLink = styled(Link)`
     ${(props: LinkProps) => props.active && `border-bottom: 1px solid ${props.theme.colors.white}`}
 `;
 
-export const Navbar = ({ title }: NavbarProps) => {
+export const Navbar = () => {
     const { pathname } = useLocation();
 
     return (
         <Wrapper>
             <StyledLink to="/" active={pathname === '/' ? 1 : 0}>
-                Home
+                <FormattedMessage {...messages.home} />
             </StyledLink>
             <StyledLink to="/about" active={pathname === '/about' ? 1 : 0}>
-                About
+                <FormattedMessage {...messages.about} />
             </StyledLink>
         </Wrapper>
     );
