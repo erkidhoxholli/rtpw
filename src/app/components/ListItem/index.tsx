@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from '../../constants/theme';
 import Dimensions from '../../constants/dimensions';
 import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 type ListItemProps = {
     title: string;
@@ -33,7 +34,7 @@ const Description = styled.p`
 const ListItem = ({ title, description }: ListItemProps) => (
     <Wrapper>
         <Title>{title}</Title>
-        <Description>{description ? description : <FormattedMessage id="app.home.repo.noDescription" />}</Description>
+        <Description>{description ? description : <FormattedMessage {...messages.noDescription} />}</Description>
     </Wrapper>
 );
 

@@ -3,6 +3,7 @@ import { styled } from '../../constants/theme';
 import { FormattedMessage } from 'react-intl';
 import Colors from '../../constants/colors';
 import Dimensions from '../../constants/dimensions';
+import messages from './messages';
 
 export enum SortByEnum {
     ASC = 'ASC',
@@ -24,7 +25,7 @@ const Wrapper = styled.button`
 
 const Sort = ({ onClick, sortByName }: SortProps) => (
     <Wrapper onClick={onClick}>
-        <FormattedMessage id="app.home.repo.sortByName" /> {sortByName}
+        <FormattedMessage {...messages.sortByName} /> {sortByName}
     </Wrapper>
 );
 

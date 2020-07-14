@@ -18,6 +18,7 @@ import Card from '../../components/Card';
 import Dimensions from '../../constants/dimensions';
 import NotFound from '../../components/NotFound';
 import media from '../../constants/media';
+import messages from './messages';
 
 const Wrapper = styled.div`
     display: flex;
@@ -82,7 +83,7 @@ const HomeContainer = () => {
     return (
         <Wrapper>
             <Helmet>
-                <title>{intl.formatMessage({ id: 'app.home.title' })}</title>
+                <title>{intl.formatMessage(messages.title)}</title>
             </Helmet>
             <SearchPanel>
                 <TextInput value={search} onChange={(evt) => debouncedSearch(evt.target.value)} />

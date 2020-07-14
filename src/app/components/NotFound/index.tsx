@@ -2,6 +2,7 @@ import React from 'react';
 import { styled } from '../../constants/theme';
 import Dimensions from '../../constants/dimensions';
 import { FormattedMessage } from 'react-intl';
+import messages from './messages';
 
 const Wrapper = styled.div`
     display: flex;
@@ -20,7 +21,7 @@ const NotFound = () => {
     return (
         <Wrapper>
             <Message>
-                <FormattedMessage id="app.general.notFound" />
+                <FormattedMessage {...messages.notFound} />
             </Message>
         </Wrapper>
     );

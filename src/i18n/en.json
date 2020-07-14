@@ -1,12 +1,8 @@
 {
-    "app.general.name": "Rimac assignment",
-    "app.general.error": "Something went wrong. Reload the page",
-    "app.general.notFound": "Not user found with this username. Please search again",
-
-    "app.home.title": "Home",
-    "app.home.repo.noDescription": "No description available",
-    "app.home.repo.sortByName": "Sort by name:",
-
-    "app.about.title": "About",
-    "app.about.description": "Create a React application using TypeScript that connects to the GitHub API."
+  "components.repos.listItem.noDescription": "No description found.",
+  "components.repos.notFound": "No user found with this username. Please search again!",
+  "components.repos.sortByName": "Sort by name:",
+  "containers.about.description": "Create a React application using TypeScript that connects to the GitHub API.",
+  "containers.about.title": "About",
+  "containers.home.title": "Home"
 }

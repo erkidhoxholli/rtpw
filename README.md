@@ -13,7 +13,8 @@
 #### Recommended improvements
 
 -   default messages (generate i18n files from default messages)
--   add support for lint-staged "pre-commit" hook
+    - https://github.com/akameco/extract-react-intl-messages
+-   add floating label search input
 -   use suspense and lazy loading
 -   better production pipeline (bundle splitting, minification, optimization etc)
 -   add pagination, better strict typing support, testing
