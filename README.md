@@ -12,9 +12,7 @@
 
 #### Recommended improvements
 
--   default messages (generate i18n files from default messages)
-    - https://github.com/akameco/extract-react-intl-messages
--   add floating label search input
+-   add floating label search input and better search input (focus)
 -   use suspense and lazy loading
 -   better production pipeline (bundle splitting, minification, optimization etc)
 -   add pagination, better strict typing support, testing
