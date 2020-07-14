@@ -1,4 +1,5 @@
-#####
+#### Github search
+![Preview image](docs/preview.png)
 
 #### How to run
 
@@ -10,5 +11,10 @@
 -   `yarn`
 -   `yarn dev`
 
+#### Technologies
+-   React 
+-   GraphQL 
+-   Typescript
+> Everything is built from the ground up!
 #### Recommended improvements
 -   search/pagination improvements and refactoring
