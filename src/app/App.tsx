@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { useIntl } from 'react-intl';
-import { ThemeProvider } from 'styled-components';
 
 import { Navbar } from './components/Navbar';
-import HomeContainer from './containers/Home';
-import AboutContainer from './containers/About';
 import ResponsiveContainer from './components/ResponsiveContainer';
 import GlobalStyle from './components/GlobalStyle';
-import { defaultTheme } from './constants/theme';
+import Spinner from './components/Spinner';
 
-const App = () => {
-    const intl = useIntl();
+const HomeContainer = lazy(() => import('./containers/Home'));
+const AboutContainer = lazy(() => import('./containers/About'));
 
-    return (
-        <ThemeProvider theme={defaultTheme}>
-            <GlobalStyle />
-            <Navbar />
-            <ResponsiveContainer>
-                <Switch>
-                    <Route exact path="/" component={HomeContainer} />
-                    <Route exact path="/about" component={AboutContainer} />
-                </Switch>
-            </ResponsiveContainer>
-        </ThemeProvider>
-    );
-};
+const App = () => (
+    <Suspense fallback={<Spinner />}>
+        <GlobalStyle />
+        <Navbar />
+        <ResponsiveContainer>
+            <Switch>
+                <Route exact path="/" component={HomeContainer} />
+                <Route path="/about" component={AboutContainer} />
+            </Switch>
+        </ResponsiveContainer>
+    </Suspense>
+);
 
 export default App;

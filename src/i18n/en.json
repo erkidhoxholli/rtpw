@@ -1,5 +1,6 @@
 {
   "components.about.searchLabel": "Search by github username:",
+  "components.errorBoundary.generalError": "General error!",
   "components.navbar.about": "About",
   "components.navbar.home": "Home",
   "components.pagination.next": "Next",

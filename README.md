@@ -16,5 +16,7 @@
 -   GraphQL 
 -   Typescript
 > Everything is built from the ground up!
+
 #### Recommended improvements
+-   add "strict": true in tsconfig and fix errors
 -   search/pagination improvements and refactoring

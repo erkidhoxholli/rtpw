@@ -3,6 +3,7 @@ import { IntlShape } from 'react-intl';
 import { injectIntl } from 'react-intl';
 
 import ErrorMessage from '../ErrorMessage';
+import messages from './messages';
 
 type ErrorBoundaryProps = {
     children: React.ReactNode;
@@ -28,7 +29,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps> {
         const { children, intl } = this.props;
 
         if (hasError) {
-            return <ErrorMessage message={intl.formatMessage({ id: 'app.general.error' })} />;
+            return <ErrorMessage message={intl.formatMessage(messages.generalError)} />;
         }
 
         return children;
