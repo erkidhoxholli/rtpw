@@ -1,11 +1,12 @@
 {
-    "name": "rimac-assignment",
+    "private": true,
+    "name": "react-the-proper-way",
     "version": "1.0.0",
     "description": "",
     "keywords": [],
     "author": "Erkid Hoxholli",
-    "license": "ISC",
     "main": "index.js",
+    "workspaces": ["packages/*", "src"],
     "scripts": {
         "test": "jest",
         "dev": "webpack-dev-server --open --config webpack.dev.ts",
@@ -59,6 +60,7 @@
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
+        "@rtpw/design-system": "0.0.1",
         "@apollo/react-hooks": "^3.1.5",
         "@hot-loader/react-dom": "^16.13.0",
         "apollo-boost": "^0.4.9",

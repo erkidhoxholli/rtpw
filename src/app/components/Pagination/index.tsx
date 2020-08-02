@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '../../constants/theme';
-import Button from '../Button';
+import Button from '@rtpw/design-system/Button';
 import Dimensions from '../../constants/dimensions';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
