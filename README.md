@@ -21,3 +21,4 @@
 -   add "strict": true in tsconfig and fix errors
 -   search/pagination improvements and refactoring
 -   adding support for yarn private workspaces (create design-system)
+-   finish up a proper useQuery implementation for graphql
