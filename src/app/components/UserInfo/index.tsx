@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@rtpw/design-system/constants/theme';
 import Dimensions from '@rtpw/design-system/constants/dimensions';
-import Image from '../Image';
+import Image from '@rtpw/design-system/Image';
 
 type ListItemProps = {
     name: string;

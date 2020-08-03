@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useIntl } from 'react-intl';
-import TextInput from '../../components/TextInput';
+import TextInput from '@rtpw/design-system/TextInput';
 import { useDebouncedCallback } from 'use-debounce';
 import { FormattedMessage } from 'react-intl';
 
@@ -9,13 +9,13 @@ import UserInfo from '../../components/UserInfo';
 import { useQuery } from '@apollo/react-hooks';
 // @ts-ignore
 import queryReposByUsername from './queryReposByUsername.graphql';
-import Spinner from '../../components/Spinner';
+import Spinner from '@rtpw/design-system/Spinner';
 import styled from 'styled-components';
 import Repos from '../../components/Repos';
 import { doesUserExist } from './utils';
 
 import Sort, { SortByEnum } from '../../components/Repos/Sort';
-import Card from '../../components/Card';
+import Card from '@rtpw/design-system/Card';
 import Dimensions from '@rtpw/design-system/constants/dimensions';
 import NotFound from '../../components/NotFound';
 import media from '@rtpw/design-system/constants/media';

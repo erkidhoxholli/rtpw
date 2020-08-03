@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { IntlShape } from 'react-intl';
 import { injectIntl } from 'react-intl';
 
-import ErrorMessage from '../ErrorMessage';
+import ErrorMessage from '@rtpw/design-system/ErrorMessage';
 import messages from './messages';
 
 type ErrorBoundaryProps = {

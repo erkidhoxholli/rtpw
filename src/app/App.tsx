@@ -2,9 +2,9 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar';
-import ResponsiveContainer from './components/ResponsiveContainer';
+import ResponsiveContainer from '@rtpw/design-system/ResponsiveContainer';
 import GlobalStyle from './components/GlobalStyle';
-import Spinner from './components/Spinner';
+import Spinner from '@rtpw/design-system/Spinner';
 
 const HomeContainer = lazy(() => import('./containers/Home'));
 const AboutContainer = lazy(() => import('./containers/About'));
