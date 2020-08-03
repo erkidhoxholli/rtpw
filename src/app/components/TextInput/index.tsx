@@ -1,7 +1,7 @@
 import React from 'react';
-import { styled } from '../../constants/theme';
+import { styled } from '@rtpw/design-system/constants/theme';
 
-import Dimensions from '../../constants/dimensions';
+import Dimensions from '@rtpw/design-system/constants/dimensions';
 
 type TextInputProps = {
     placeholder?: string;

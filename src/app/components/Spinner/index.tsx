@@ -1,5 +1,5 @@
 import React from 'react';
-import { styled } from '../../constants/theme';
+import { styled } from '@rtpw/design-system/constants/theme';
 
 // https://gist.github.com/knowbody/578b35164b69e867ed4913423f6bed30
 const SpinnerSVG = styled.svg`

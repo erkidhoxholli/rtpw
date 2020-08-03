@@ -1,8 +1,8 @@
 import React from 'react';
-import { styled } from '../../constants/theme';
+import { styled } from '@rtpw/design-system/constants/theme';
 import { FormattedMessage } from 'react-intl';
-import Colors from '../../constants/colors';
-import Dimensions from '../../constants/dimensions';
+import Colors from '@rtpw/design-system/constants/colors';
+import Dimensions from '@rtpw/design-system/constants/dimensions';
 import messages from './messages';
 
 export enum SortByEnum {

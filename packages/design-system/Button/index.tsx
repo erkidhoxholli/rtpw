@@ -1,7 +1,7 @@
 import React from 'react';
-import { styled } from '../constants/theme';
-import Dimensions from '../constants/dimensions';
-import Colors from '../constants/colors';
+import { styled } from '@rtpw/design-system/constants/theme';
+import Dimensions from '@rtpw/design-system/constants/dimensions';
+import Colors from '@rtpw/design-system/constants/colors';
 
 type ButtonProps = {
     title: React.ReactNode | string;

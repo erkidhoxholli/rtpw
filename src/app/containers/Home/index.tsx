@@ -16,9 +16,9 @@ import { doesUserExist } from './utils';
 
 import Sort, { SortByEnum } from '../../components/Repos/Sort';
 import Card from '../../components/Card';
-import Dimensions from '../../constants/dimensions';
+import Dimensions from '@rtpw/design-system/constants/dimensions';
 import NotFound from '../../components/NotFound';
-import media from '../../constants/media';
+import media from '@rtpw/design-system/constants/media';
 import messages from './messages';
 import Pagination from '../../components/Pagination';
 

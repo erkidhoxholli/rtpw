@@ -1,7 +1,7 @@
 import React from 'react';
-import { styled } from '../../constants/theme';
-import Colors from '../../constants/colors';
-import Dimensions from '../../constants/dimensions';
+import { styled } from '@rtpw/design-system/constants/theme';
+import Colors from '@rtpw/design-system/constants/colors';
+import Dimensions from '@rtpw/design-system/constants/dimensions';
 
 const Wrapper = styled.div`
     display: flex;

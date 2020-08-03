@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Colors from '../../constants/colors';
-import Dimensions from '../../constants/dimensions';
-import { styled, Theme } from '../../constants/theme';
+import Colors from '@rtpw/design-system/constants/colors';
+import Dimensions from '@rtpw/design-system/constants/dimensions';
+import { styled, Theme } from '@rtpw/design-system/constants/theme';
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
 
