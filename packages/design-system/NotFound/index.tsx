@@ -1,8 +1,6 @@
 import React from 'react';
 import { styled } from '@rtpw/design-system/constants/theme';
 import Dimensions from '@rtpw/design-system/constants/dimensions';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
 
 const Wrapper = styled.div`
     display: flex;
@@ -17,12 +15,14 @@ const Message = styled.h4`
     font-size: ${Dimensions.fontSize.medium};
 `;
 
-const NotFound = () => {
+type NotFoundProps = {
+    children: React.ReactNode;
+};
+
+const NotFound = ({ children }: NotFoundProps) => {
     return (
         <Wrapper>
-            <Message>
-                <FormattedMessage {...messages.notFound} />
-            </Message>
+            <Message>{children}</Message>
         </Wrapper>
     );
 };

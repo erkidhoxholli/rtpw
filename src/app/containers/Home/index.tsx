@@ -17,7 +17,7 @@ import { doesUserExist } from './utils';
 import Sort, { SortByEnum } from '../../components/Repos/Sort';
 import Card from '@rtpw/design-system/Card';
 import Dimensions from '@rtpw/design-system/constants/dimensions';
-import NotFound from '../../components/NotFound';
+import NotFound from '@rtpw/design-system/NotFound';
 import media from '@rtpw/design-system/constants/media';
 import messages from './messages';
 import Pagination from '../../components/Pagination';
@@ -125,7 +125,9 @@ const HomeContainer = () => {
                     </Right>
                 </UserPanel>
             ) : (
-                <NotFound />
+                <NotFound>
+                    <FormattedMessage {...messages.notFound} />
+                </NotFound>
             )}
         </Wrapper>
     );

@@ -13,6 +13,10 @@ const messages = defineMessages({
         id: 'components.about.searchLabel',
         defaultMessage: 'Search by github username:',
     },
+    notFound: {
+        id: 'components.repos.notFound',
+        defaultMessage: 'No user found with this username. Please search again!',
+    },
 });
 
 export default messages;
