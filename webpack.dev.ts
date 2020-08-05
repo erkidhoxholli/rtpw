@@ -14,6 +14,7 @@ const config: webpack.Configuration = {
     devtool: 'source-map',
     devServer: {
         hot: true,
+        historyApiFallback: true,
     },
     node: {
         fs: 'empty',
