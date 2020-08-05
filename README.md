@@ -1,8 +1,4 @@
-#### Github search
-![Preview image](docs/preview.png)
-
 #### How to run
-
 -   git clone https://github.com/erkidhoxholli/rtpw.git
 -   cd ./rtpw
 -   rename `.env.example` to `.env`
@@ -10,6 +6,17 @@
 -   replace `YOUR_TOKEN` in `.env` with the one you generated from github
 -   `yarn`
 -   `yarn dev`
+
+#### Features:
+-   Use as a boilerplate
+-   Theming 
+-   Internationalization 
+-   Scalable structure
+
+
+#### Screenshots
+![Preview image](docs/preview.png)
+
 
 #### Technologies
 -   React 
