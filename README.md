@@ -3,8 +3,8 @@
 
 #### How to run
 
--   git clone https://gitlab.com/erkidhoxholli/rimac-react
--   cd ./rimac-react
+-   git clone https://github.com/erkidhoxholli/rtpw.git
+-   cd ./rtpw
 -   rename `.env.example` to `.env`
 -   [generate github token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token)
 -   replace `YOUR_TOKEN` in `.env` with the one you generated from github
