@@ -7,7 +7,7 @@ import enTranslations from './i18n/en.json';
 import ErrorBoundary from './app/components/ErrorBoundary';
 import { ApolloProvider } from '@apollo/react-hooks';
 import graphQLClient from './app/utils/client.graphql';
-import { defaultTheme } from './app/constants/theme';
+import { defaultTheme } from '@rtpw/design-system/constants/theme';
 import { ThemeProvider } from 'styled-components';
 
 const messages = {
