@@ -60,7 +60,7 @@ const DEBOUNCE_DELAY = 250;
 
 const HomeContainer = () => {
     const intl = useIntl();
-    const [search, setSearch] = useState('erkidhoxholli');
+    const [search, setSearch] = useState('gaearon');
     const [page, setPage] = useState(1);
     const [cursor, setCursor] = useState(null);
     const [sortByName, setSortByName] = useState(SortByEnum.ASC);
