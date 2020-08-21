@@ -5,6 +5,7 @@ import Dimensions from '@rtpw/design-system/constants/dimensions';
 import { styled, Theme } from '@rtpw/design-system/constants/theme';
 import messages from './messages';
 import { FormattedMessage } from 'react-intl';
+import LanguageSwitcher from "../../../../packages/design-system/LanguageSwitcher";
 
 const Wrapper = styled.nav`
     height: 40px;
@@ -42,6 +43,7 @@ export const Navbar = () => {
             <StyledLink to="/about" active={pathname === '/about' ? 1 : 0}>
                 <FormattedMessage {...messages.about} />
             </StyledLink>
+            <LanguageSwitcher />
         </Wrapper>
     );
 };

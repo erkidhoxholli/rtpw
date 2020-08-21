@@ -1,0 +1,14 @@
+{
+  "components.about.searchLabel": "Wyszukaj według nazwy użytkownika github:",
+  "components.errorBoundary.generalError": "Ogólny błąd!",
+  "components.navbar.about": "Informacje",
+  "components.navbar.home": "Strona główna",
+  "components.pagination.next": "Dalej",
+  "components.pagination.previous": "Poprzedni",
+  "components.repos.listItem.noDescription": "Nie znaleziono opisu.",
+  "components.repos.notFound": "Nie znaleziono użytkownika o tej nazwie użytkownika. Wyszukaj ponownie!",
+  "components.repos.sortByName": "Sortuj według nazwy:",
+  "containers.about.description": "Utwórz aplikację React przy użyciu TypeScript, która łączy się z API GitHub.",
+  "containers.about.title": "Informacje",
+  "containers.home.title": "Strona główna"
+}
