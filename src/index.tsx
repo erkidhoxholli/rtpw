@@ -8,9 +8,9 @@ import plTranslations from './i18n/pl.json';
 import ErrorBoundary from './app/components/ErrorBoundary';
 import {ApolloProvider} from '@apollo/react-hooks';
 import graphQLClient from './app/utils/client.graphql';
-import {defaultTheme} from '@rtpw/design-system/constants/theme';
 import {ThemeProvider} from 'styled-components';
 import {LanguageConsumer, LanguageProvider} from "./app/context/LanguageContext";
+import {ThemeConsumer, ThemeChangeProvider} from "./app/context/ThemeContext";
 
 const messages = {
     en: enTranslations,
@@ -22,15 +22,22 @@ ReactDOM.render(
         <LanguageConsumer>
             {({language}) => (
                 <IntlProvider locale={language} messages={messages[language]}>
-                    <ThemeProvider theme={defaultTheme}>
-                        <ErrorBoundary>
-                            <ApolloProvider client={graphQLClient}>
-                                <Router>
-                                    <App/>
-                                </Router>
-                            </ApolloProvider>
-                        </ErrorBoundary>
-                    </ThemeProvider>
+                    <ThemeChangeProvider>
+                    <ThemeConsumer>
+                        {({theme}) => (
+                            <ThemeProvider theme={theme}>
+                                <ErrorBoundary>
+                                    <ApolloProvider client={graphQLClient}>
+                                        <Router>
+                                            <App/>
+                                        </Router>
+                                    </ApolloProvider>
+                                </ErrorBoundary>
+
+                            </ThemeProvider>
+                        )}
+                    </ThemeConsumer>
+                    </ThemeChangeProvider>
                 </IntlProvider>
             )}
         </LanguageConsumer>

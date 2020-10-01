@@ -6,24 +6,21 @@ import Button from "../Button";
 import {LanguageConsumer} from "../../../src/app/context/LanguageContext";
 import Languages from "../../../src/app/constants/languages";
 
-type SwitcherProps = {
-    onSwitch?: (evt?: React.MouseEvent<HTMLInputElement>) => void;
-};
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
 
-const LanguageSwitcher = ({onSwitch}: SwitcherProps) => {
+const LanguageSwitcher = () => {
+    const { english, polish } = Languages;
     return (
         <LanguageConsumer>
             {({updateLanguage, language}) => (
                 <Wrapper>
-                    <Button disabled={language === Languages.english.code} title={Languages.english.name}
-                            onClick={() => updateLanguage(Languages.english.code)}/>
-                    <Button disabled={language === Languages.polish.code} title={Languages.polish.name}
-                            onClick={() => updateLanguage(Languages.polish.code)}/>
+                    <Button disabled={language === english.code} title={english.name}
+                            onClick={() => updateLanguage(english.code)}/>
+                    <Button disabled={language === polish.code} title={polish.name}
+                            onClick={() => updateLanguage(polish.code)}/>
                 </Wrapper>
             )}
         </LanguageConsumer>

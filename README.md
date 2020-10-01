@@ -1,3 +1,5 @@
+> NEW: Added a Neo4J database with GRAPHQL backend in /backend 
+
 #### How to run
 -   git clone https://github.com/erkidhoxholli/rtpw.git
 -   cd ./rtpw
@@ -15,7 +17,7 @@
 
 
 #### Screenshots
-![Preview image](docs/preview.png)
+![Preview image](docs/preview.jpg)
 
 
 #### Technologies
@@ -28,3 +30,4 @@
 -   add "strict": true in tsconfig and fix errors
 -   search/pagination improvements and refactoring
 -   finish up a proper useQuery implementation for graphql
+-   add proper e2e and unit tests
