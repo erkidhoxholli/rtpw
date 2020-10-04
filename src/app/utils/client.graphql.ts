@@ -4,11 +4,11 @@ import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
 const httpLink = createHttpLink({
-    uri: process.env.GITHUB_GRAPHQL_ENDPOINT,
+    uri: process.env.REACT_APP_GITHUB_GRAPHQL_ENDPOINT,
 });
 
 const authLink = setContext((_, { headers }) => {
-    const token = process.env.GITHUB_TOKEN;
+    const token = process.env.REACT_APP_GITHUB_TOKEN;
     return {
         headers: {
             ...headers,
