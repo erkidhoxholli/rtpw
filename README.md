@@ -25,5 +25,6 @@
 > Everything is built from the ground up!
 
 #### Recommended improvements
--   Deploy 
+-   refactoring
 -   add proper e2e and unit tests
+-   add CircleCI support
