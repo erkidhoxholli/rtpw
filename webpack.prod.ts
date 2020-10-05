@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebPackPlugin from 'html-webpack-plugin';
+const Dotenv = require('dotenv-webpack');
 
 const htmlPlugin = new HtmlWebPackPlugin({
     template: './index.html',
@@ -39,7 +40,7 @@ const config: webpack.Configuration = {
             },
         ],
     },
-    plugins: [htmlPlugin],
+    plugins: [htmlPlugin, new Dotenv()],
 };
 
 export default config;
