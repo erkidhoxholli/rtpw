@@ -18,7 +18,6 @@ const App = () => (
                 <Route exact path="/" component={HomeContainer} />
                 <Route path="/about" component={AboutContainer} />
             </Switch>
-            <pre>{JSON.stringify(process.env, undefined, 2)}</pre>
         </ResponsiveContainer>
     </Suspense>
 );
