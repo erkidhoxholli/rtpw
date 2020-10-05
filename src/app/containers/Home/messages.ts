@@ -6,16 +6,20 @@ const messages = defineMessages({
         defaultMessage: 'Home',
     },
     description: {
-        id: 'containers.about.description',
+        id: 'containers.home.description',
         defaultMessage: 'Create a React application using TypeScript that connects to the GitHub API.',
     },
     searchLabel: {
-        id: 'components.about.searchLabel',
+        id: 'components.home.searchLabel',
         defaultMessage: 'Search by github username:',
     },
-    notFound: {
-        id: 'components.repos.notFound',
+    noUserFound: {
+        id: 'components.home.noUserFound',
         defaultMessage: 'No user found with this username. Please search again!',
+    },
+    noReposFound: {
+        id: 'components.home.noReposFound',
+        defaultMessage: 'This user doesnt have any repositories.',
     },
 });
 

@@ -1,20 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import { Helmet } from 'react-helmet';
-import { useIntl } from 'react-intl';
+import {Helmet} from 'react-helmet';
+import {useIntl} from 'react-intl';
 import TextInput from '@rtpw/design-system/TextInput';
-import { useDebouncedCallback } from 'use-debounce';
-import { FormattedMessage } from 'react-intl';
+import {useDebouncedCallback} from 'use-debounce';
+import {FormattedMessage} from 'react-intl';
 
 import UserInfo from '../../components/UserInfo';
-import { useQuery, useLazyQuery } from '@apollo/react-hooks';
+import {useQuery, useLazyQuery} from '@apollo/react-hooks';
 // @ts-ignore
 import queryReposByUsername from './queryReposByUsername.graphql';
 import Spinner from '@rtpw/design-system/Spinner';
 import styled from 'styled-components';
 import Repos from '../../components/Repos';
-import { doesUserExist } from './utils';
+import {doesUserExist} from './utils';
 
-import Sort, { SortByEnum } from '../../components/Repos/Sort';
+import Sort, {SortByEnum} from '../../components/Repos/Sort';
 import Card from '@rtpw/design-system/Card';
 import Dimensions from '@rtpw/design-system/constants/dimensions';
 import NotFound from '@rtpw/design-system/NotFound';
@@ -22,6 +22,7 @@ import media from '@rtpw/design-system/constants/media';
 import messages from './messages';
 import Pagination from '../../components/Pagination';
 import Button from "@rtpw/design-system/Button";
+import Colors from "../../../../packages/design-system/constants/colors";
 
 const Wrapper = styled.div`
     display: flex;
@@ -56,8 +57,13 @@ const UserPanel = styled.div`
         flex-direction: column;
     `}
 `;
+
+const NoReposText = styled.div`
+  text-align: center;
+  color: ${Colors.lightGray};
+`
+
 const PER_PAGE = 5;
-const DEBOUNCE_DELAY = 250;
 
 const HomeContainer = () => {
     const intl = useIntl();
@@ -66,15 +72,15 @@ const HomeContainer = () => {
     const [cursor, setCursor] = useState(null);
     const [sortByName, setSortByName] = useState(SortByEnum.ASC);
 
-    const { loading, error, data } = useQuery(queryReposByUsername, {
-        variables: { username: search, sortByName, perPage: PER_PAGE, afterCursor: cursor },
+    const {loading, error, data} = useQuery(queryReposByUsername, {
+        variables: {username: search, sortByName, perPage: PER_PAGE, afterCursor: cursor},
     });
 
 
     const isUserFound = doesUserExist(error);
 
     const edges = data?.user?.repositories?.edges
-    const {...userInfo } = data?.user
+    const {...userInfo} = data?.user
 
     const sorterValue = sortByName === SortByEnum.ASC ? SortByEnum.DESC : SortByEnum.ASC;
 
@@ -91,7 +97,7 @@ const HomeContainer = () => {
                 />
             </SearchPanel>
             {
-                loading ? <Spinner /> : <>
+                loading ? <Spinner/> : <>
                     {isUserFound && edges ? (
                         <UserPanel>
                             <Left>
@@ -101,25 +107,34 @@ const HomeContainer = () => {
                             </Left>
                             <Right>
                                 <Card>
-                                    <Sort sortByName={sorterValue} onClick={() => setSortByName(sorterValue)} />
-                                    <Repos data={edges} />
-                                    <Pagination
-                                        perPage={5}
-                                        currentPage={page}
-                                        onPageChange={(page) => {
-                                            setPage(page);
-                                            const cursor = edges[PER_PAGE - 1].cursor;
+                                    {
+                                        edges.length === 0 ?
+                                            <NoReposText>
+                                                <FormattedMessage {...messages.noReposFound}/>
+                                            </NoReposText>
+                                            : <>
+                                                <Sort sortByName={sorterValue} onClick={() => setSortByName(sorterValue)}/>
+                                                <Repos data={edges}/>
+                                                <Pagination
+                                                    perPage={5}
+                                                    currentPage={page}
+                                                    onPageChange={(page) => {
+                                                        setPage(page);
+                                                        const cursor = edges[PER_PAGE - 1].cursor;
 
-                                            if (page === 1) setCursor(null);
-                                            else setCursor(cursor);
-                                        }}
-                                    />
+                                                        if (page === 1) setCursor(null);
+                                                        else setCursor(cursor);
+                                                    }}
+                                                />
+                                            </>
+                                    }
+
                                 </Card>
                             </Right>
                         </UserPanel>
                     ) : (
                         <NotFound>
-                            <FormattedMessage {...messages.notFound} />
+                            <FormattedMessage {...messages.noUserFound} />
                         </NotFound>
                     )}
 
