@@ -8,6 +8,7 @@ import Spinner from '@rtpw/design-system/Spinner';
 
 const HomeContainer = lazy(() => import('./containers/Home'));
 const AboutContainer = lazy(() => import('./containers/About'));
+const SignupContainer = lazy(() => import('./containers/Signup'));
 
 const App = () => (
     <Suspense fallback={<Spinner />}>
@@ -17,6 +18,7 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={HomeContainer} />
                 <Route path="/about" component={AboutContainer} />
+                <Route path="/auth/signup" component={SignupContainer} />
             </Switch>
         </ResponsiveContainer>
     </Suspense>

@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "name": "@rtpw/hook-form",
+  "version": "0.0.1",
+  "description": "Form based on react-hook-form",
+  "author": "Erkid Hoxholli"
+}

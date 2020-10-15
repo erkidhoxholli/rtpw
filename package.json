@@ -6,7 +6,10 @@
     "keywords": [],
     "author": "Erkid Hoxholli",
     "main": "index.js",
-    "workspaces": ["packages/*", "src"],
+    "workspaces": [
+        "packages/*",
+        "src"
+    ],
     "scripts": {
         "test": "jest",
         "dev": "webpack-dev-server --open --config webpack.dev.ts",
@@ -60,9 +63,10 @@
         "webpack-dev-server": "^3.11.0"
     },
     "dependencies": {
-        "@rtpw/design-system": "0.0.1",
         "@apollo/react-hooks": "^3.1.5",
         "@hot-loader/react-dom": "^16.13.0",
+        "@rtpw/design-system": "0.0.1",
+        "@rtpw/hook-form": "0.0.1",
         "apollo-boost": "^0.4.9",
         "apollo-link-context": "^1.0.20",
         "css-loader": "^3.6.0",
@@ -70,10 +74,12 @@
         "dotenv-webpack": "^1.8.0",
         "graphql": "^15.2.0",
         "graphql-tag": "^2.10.3",
+        "polished": "^4.0.2",
         "react": "^16.13.1",
         "react-apollo": "^3.1.5",
         "react-dom": "^16.13.1",
         "react-helmet": "^6.1.0",
+        "react-hook-form": "^6.9.0",
         "react-intl": "^5.0.2",
         "react-router-dom": "^5.2.0",
         "styled-components": "^5.1.1",

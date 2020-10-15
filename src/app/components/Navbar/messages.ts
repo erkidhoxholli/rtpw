@@ -9,6 +9,10 @@ const messages = defineMessages({
         id: 'components.navbar.about',
         defaultMessage: 'About',
     },
+    signup: {
+        id: 'components.navbar.signup',
+        defaultMessage: 'New account',
+    },
 });
 
 export default messages;

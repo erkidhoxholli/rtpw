@@ -15,7 +15,8 @@ const Wrapper = styled.button`
     border-radius: ${Dimensions.radius.small};
     color: ${Colors.white};
     height: 30px;
-
+    width: 100%;
+    
     ${(props) =>
         props.disabled &&
         `
