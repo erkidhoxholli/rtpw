@@ -25,6 +25,6 @@
 > Everything is built from the ground up!
 
 #### Recommended improvements
--   refactoring
+-   design-system and hook-form packages
 -   add proper e2e and unit tests
 -   add CircleCI support
