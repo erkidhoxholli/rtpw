@@ -3,5 +3,10 @@
   "name": "@rtpw/design-system",
   "version": "0.0.1",
   "description": "General purpose design system",
-  "author": "Erkid Hoxholli"
+  "author": "Erkid Hoxholli",
+  "dependencies": {
+    "@types/react-select": "^3.0.22",
+    "react-router": "^5.2.0",
+    "react-select": "^3.1.0"
+  }
 }

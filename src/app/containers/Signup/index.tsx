@@ -1,16 +1,12 @@
-
 import React, {useState} from 'react';
 import { Helmet } from 'react-helmet';
 import { useIntl, FormattedMessage } from 'react-intl';
 import { useForm } from "react-hook-form";
-import Input from "@rtpw/hook-form/Input"
-
 import messages from './messages';
-import FloatingInput from "../../../../packages/hook-form/FloatingInput";
-import Button from "../../../../packages/design-system/Button";
 import styled from "styled-components";
+import {Form} from "./Form";
 
-type Inputs = {
+type FormInputs = {
     firstName: string,
     lastName: string,
     age: Number,
@@ -28,9 +24,7 @@ const Wrapper = styled.div`
 
 const SignupContainer = () => {
     const intl = useIntl();
-    const { register, handleSubmit, watch, errors } = useForm<Inputs>();
-    const [ lastname, setLastname ] = useState<string>("");
-    const [ firstname, setFirstname ] = useState<string>("");
+    const { register, handleSubmit, watch, errors } = useForm<FormInputs>();
     const onSubmit = (data: any) => console.log(data);
 
     return (
@@ -39,11 +33,7 @@ const SignupContainer = () => {
                 <title>{intl.formatMessage(messages.title)}</title>
             </Helmet>
 
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <FloatingInput label={<FormattedMessage {...messages.formFirstnameLabel}/>} value={firstname} onChange={(evt: React.ChangeEvent<HTMLInputElement>) => setFirstname(evt.target.value)}/>
-                <FloatingInput label={<FormattedMessage {...messages.formLastnameLabel}/>} value={lastname} onChange={(evt: React.ChangeEvent<HTMLInputElement>) => setLastname(evt.target.value)}/>
-                <Button title={<FormattedMessage {...messages.formCreateButton}/>} />
-            </form>
+            <Form onSubmit={() => handleSubmit(onSubmit)}/>
         </Wrapper>
     );
 };
