@@ -50,7 +50,7 @@ export const Navbar = () => {
             <StyledLink to="/about" active={pathname === '/about' ? 1 : 0}>
                 <FormattedMessage {...messages.about} />
             </StyledLink>
-                <StyledLink to="/auth/signup" active={pathname === '/auth/signup' ? 1 : 0}>
+                <StyledLink to="/register" active={pathname === '/register' ? 1 : 0}>
                     <FormattedMessage {...messages.signup} />
                 </StyledLink>
             </MainMenu>

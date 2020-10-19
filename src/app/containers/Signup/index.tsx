@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { Helmet } from 'react-helmet';
-import { useIntl, FormattedMessage } from 'react-intl';
-import { useForm } from "react-hook-form";
+import {Helmet} from 'react-helmet';
+import {useIntl, FormattedMessage} from 'react-intl';
 import messages from './messages';
 import styled from "styled-components";
 import {Form} from "./Form";
+import {useForm, FormProvider} from "react-hook-form";
 
 type FormInputs = {
     firstName: string,
@@ -24,16 +24,29 @@ const Wrapper = styled.div`
 
 const SignupContainer = () => {
     const intl = useIntl();
-    const { register, handleSubmit, watch, errors } = useForm<FormInputs>();
-    const onSubmit = (data: any) => console.log(data);
+    const defaultValues = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: ''
+    }
+    const methods = useForm({defaultValues});
+
+    const onSubmit = (evt:any) => {
+        evt.preventDefault()
+        methods.handleSubmit((data: any) => {
+            console.log({data})
+        })(evt)
+    }
 
     return (
         <Wrapper>
             <Helmet>
                 <title>{intl.formatMessage(messages.title)}</title>
             </Helmet>
-
-            <Form onSubmit={() => handleSubmit(onSubmit)}/>
+            <FormProvider {...methods}>
+                <Form onSubmit={onSubmit}/>
+            </FormProvider>
         </Wrapper>
     );
 };

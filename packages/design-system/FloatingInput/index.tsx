@@ -37,10 +37,10 @@ const Input = styled.input`
   font-size: 16px;
   width: 100%;
   padding: ${padV}px ${padH}px;
-  border: 1px solid ${props => props.theme.borderColor || defaultColor};
+  border: 1px solid ${props => props.theme.colors.lightGray || defaultColor};
   &:focus {
     border: 1px solid ${props =>
-    darken(0.1, props.theme.borderColor || defaultColor)
+    darken(0.1, props.theme.colors.lightGray || defaultColor)
 };
   }
 `;

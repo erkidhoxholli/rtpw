@@ -18,7 +18,7 @@ const App = () => (
             <Switch>
                 <Route exact path="/" component={HomeContainer} />
                 <Route path="/about" component={AboutContainer} />
-                <Route path="/auth/signup" component={SignupContainer} />
+                <Route path="/register" component={SignupContainer} />
             </Switch>
         </ResponsiveContainer>
     </Suspense>

@@ -17,6 +17,14 @@ const messages = defineMessages({
         id: 'containers.signup.formCreateButton',
         defaultMessage: 'Create now',
     },
+    formValidationFirstnameMinLength: {
+        id: 'containers.signup.formValidationFirstnameMinLength',
+        defaultMessage: 'Min length is 5',
+    },
+    formValidationFirstnameMaxLength: {
+        id: 'containers.signup.formValidationFirstnameMaxLength',
+        defaultMessage: 'Max length is 10',
+    }
 });
 
 export default messages;
