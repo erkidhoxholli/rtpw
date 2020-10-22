@@ -13,7 +13,8 @@ export function Form({onSubmit}: IProps ) {
     const validator = Validator(intl)
     return (
         <form onSubmit={onSubmit}>
-            <Input name="firstName" validators={validator.firstName} />
+            <Input label="Firstname" name="firstName" validators={validator.firstName} />
+            <Input label="Lastname" name="lastName" validators={validator.firstName} />
             <Button title={<FormattedMessage {...messages.formCreateButton}/>} />
         </form>
     )

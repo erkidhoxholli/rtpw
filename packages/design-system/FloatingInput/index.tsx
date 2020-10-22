@@ -1,6 +1,7 @@
 import React, {useRef, useState} from 'react';
 import styled, {css} from 'styled-components';
 import {darken} from 'polished';
+import Colors from "../constants/colors";
 
 const defaultColor = 'darkslategray';
 const padV = 16;
@@ -17,6 +18,7 @@ const TextFieldWrapper = styled.div`
 interface LabelProps {
     up?: boolean;
 }
+
 const Label = styled.label<LabelProps>`
   color: inherit;
   font-size: ${labelSize}px;
@@ -28,7 +30,11 @@ const Label = styled.label<LabelProps>`
   `}
 `;
 
-const Input = styled.input`
+interface InputProps {
+    hasError?: boolean;
+}
+
+const Input = styled.input<InputProps>`
   box-sizing: border-box;
   background-color: transparent;
   color: inherit;
@@ -38,6 +44,7 @@ const Input = styled.input`
   width: 100%;
   padding: ${padV}px ${padH}px;
   border: 1px solid ${props => props.theme.colors.lightGray || defaultColor};
+  ${props => props.hasError && `border-color: ${Colors.errorRed}`};
   &:focus {
     border: 1px solid ${props =>
     darken(0.1, props.theme.colors.lightGray || defaultColor)
@@ -47,15 +54,16 @@ const Input = styled.input`
 
 
 type FloatingInputProps = {
-    label: any,
-    value: string,
-    onChange?: (evt?: React.ChangeEvent<HTMLInputElement>) => void;
+    label?: any,
+    value?: string,
+    name: string,
+    hasError?: boolean,
+    onChange?: (evt?: React.ChangeEvent<HTMLInputElement>) => void
+    innerRef: React.RefObject<HTMLInputElement>;
 };
 
 
-export default function FloatingInput({label, value, onChange, ...rest}: FloatingInputProps) {
-    const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-
+function FloatingInput({label, innerRef, name, hasError, value, onChange, ...rest}: FloatingInputProps) {
     const [focused, setFocused] = useState<boolean>(false)
 
     const handleFocus = () => setFocused(true)
@@ -65,7 +73,7 @@ export default function FloatingInput({label, value, onChange, ...rest}: Floatin
     const handleLabelClick = () => {
         if (!focused && !value) {
             setFocused(focused)
-            inputRef?.current?.focus();
+            innerRef?.current?.focus();
         }
     };
 
@@ -73,7 +81,7 @@ export default function FloatingInput({label, value, onChange, ...rest}: Floatin
         <TextFieldWrapper>
             {label &&
             <Label
-                up={focused || !!value}
+                up={focused || !value}
                 onClick={handleLabelClick}
             >
                 {label}
@@ -83,12 +91,15 @@ export default function FloatingInput({label, value, onChange, ...rest}: Floatin
             <Input
                 value={value}
                 onChange={onChange}
+                name={name}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                ref={inputRef}
+                ref={innerRef}
+                hasError={hasError}
                 {...rest}
             />
         </TextFieldWrapper>
     );
 }
 
+export default FloatingInput
