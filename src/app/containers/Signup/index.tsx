@@ -38,7 +38,6 @@ const SignupContainer = () => {
             console.log({data})
         })(evt)
     }
-
     return (
         <Wrapper>
             <Helmet>

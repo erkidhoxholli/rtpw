@@ -57,13 +57,14 @@ type FloatingInputProps = {
     label?: any,
     value?: string,
     name: string,
+    type?: string,
     hasError?: boolean,
     onChange?: (evt?: React.ChangeEvent<HTMLInputElement>) => void
     innerRef: React.RefObject<HTMLInputElement>;
 };
 
 
-function FloatingInput({label, innerRef, name, hasError, value, onChange, ...rest}: FloatingInputProps) {
+function FloatingInput({label, type, innerRef, name, hasError, value, onChange, ...rest}: FloatingInputProps) {
     const [focused, setFocused] = useState<boolean>(false)
 
     const handleFocus = () => setFocused(true)
@@ -92,6 +93,7 @@ function FloatingInput({label, innerRef, name, hasError, value, onChange, ...res
                 value={value}
                 onChange={onChange}
                 name={name}
+                type={type}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 ref={innerRef}

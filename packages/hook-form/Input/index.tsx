@@ -8,18 +8,27 @@ interface IProps {
     name: string
     label: string
     validators: any
+    type?: "text" | "email" | "password"
 }
 
+// TODO: pass the value to FloatingInput
 const NestedInput = memo(
-    ({ name, value, label, validators, register, formState: {errors, ...otherState}}) => (
+    ({ name, type, label, value, validators, register, formState: {errors, ...otherState}}) => (
         <>
-            <FloatingInput hasError={errors[name]} label={label} name={name} innerRef={register(validators)}/>
+            <FloatingInput
+                type={type}
+                value={value}
+                hasError={errors[name]}
+                label={label}
+                name={name}
+                innerRef={register(validators)}
+            />
             {errors[name] && <FormError>{errors[name]?.message}</FormError>}
         </>
     ),
 );
 
-export default function Input({name, label, validators}: IProps) {
+export default function Input({name, type, label, validators}: IProps) {
     const methods = useFormContext();
-    return <NestedInput validators={validators} label={label} name={name} {...methods} />;
+    return <NestedInput type={type} validators={validators} label={label} name={name} {...methods} />;
 };
