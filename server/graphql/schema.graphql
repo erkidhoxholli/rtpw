@@ -1,0 +1,81 @@
+### Scalars
+scalar EmailAddress
+
+### Directives
+directive @isAdmin on FIELD_DEFINITION
+
+############################################################################################
+#### Connection Types
+############################################################################################
+type UsersConnection {
+    results: [User!]
+    pageInfo: PageInfo!
+}
+
+type RecipesConnection {
+    results: [Recipe!]
+    pageInfo: PageInfo!
+}
+############################################################################################
+#### Inputs
+############################################################################################
+
+
+############################################################################################
+#### General Types
+############################################################################################
+type User {
+    id: Int!
+    name: String!
+    email: EmailAddress!
+    role: String! ## TODO: add role type
+    recipes: [Recipe!]!
+}
+
+type Recipe {
+    id: Int!
+    title: String!
+    ingredients: String!
+    direction: String!
+    user: User!
+}
+
+type PageInfo {
+    currentPage: Int!
+    perPage: Int!
+    itemCount: Int!
+    pageCount: Int!
+    hasPreviousPage: Boolean!
+    hasNextPage: Boolean!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+############################################################################################
+#### Queries
+############################################################################################
+type Query {
+    user(id: Int!): User!
+    allUsers(page:Int, pageSize:Int): UsersConnection!
+    allRecipes(page:Int, pageSize:Int): RecipesConnection! @isAdmin
+    recipe(id: Int!): Recipe!
+}
+
+############################################################################################
+#### Mutations
+############################################################################################
+type Mutation {
+    createUser(name: String!, email: EmailAddress!, password: String!): User! @isAdmin
+    createRecipe(
+        userId: Int!
+        title: String!
+        ingredients: String!
+        direction: String!
+    ): Recipe! @isAdmin
+
+    login(email: EmailAddress!, password: String!): AuthPayload!
+    signup(email: EmailAddress!, password: String!, name: String!): AuthPayload!
+
+}

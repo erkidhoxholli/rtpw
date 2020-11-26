@@ -1,10 +1,11 @@
-.env
-/node_modules
-/dist
-/e2e/node_modules
 .idea
 .DS_Store
-npm-debug.log
 
-/backend/node_modules
-/backend/.env
+/client/.env
+/client/node_modules
+/client/dist
+/client/e2e/node_modules
+/client/npm-debug.log
+
+/server/node_modules
+/server/.env

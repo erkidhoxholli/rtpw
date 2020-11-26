@@ -1,0 +1,18 @@
+mutation authSignupUser(
+    $email: EmailAddress!
+    $password: String!
+    $name: String!
+) {
+    signup(
+        email: $email
+        password: $password
+        name: $name
+    ) {
+        user {
+            id
+            name
+            email
+        }
+        token
+    }
+}

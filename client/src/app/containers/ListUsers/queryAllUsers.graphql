@@ -1,0 +1,17 @@
+query queryAllUsers {
+    allUsers(page: 0, pageSize: 10) {
+        pageInfo {
+            currentPage
+            pageCount
+            perPage
+            itemCount
+            hasNextPage
+            hasPreviousPage
+        }
+        results {
+            id
+            name
+            email
+        }
+    }
+}
