@@ -18,7 +18,6 @@ mutation {
     }
   }
 }
-
 # Write your query or mutation here
 mutation {
   createUser(
