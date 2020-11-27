@@ -1,9 +1,10 @@
 const errors = require('./errors')
 const jwt = require('jsonwebtoken')
-const { USER } = require('../directives/roles')
+const {USER} = require('../directives/roles')
+const bcrypt = require('bcryptjs')
 
 async function login(parent, {email, password}, {models}) {
-    const user = await models.User.findOne({ where: { email } })
+    const user = await models.User.findOne({where: {email}})
     if (!user) {
         throw new Error(errors.ERROR_NO_USER_FOUND)
     }
@@ -23,9 +24,10 @@ async function login(parent, {email, password}, {models}) {
         user,
     }
 }
+
 async function signup(parent, {email, password, name}, {models}) {
     // check if users already exists
-    const user = await models.User.findOne({ where: { email } })
+    const user = await models.User.findOne({where: {email}})
     if (user) {
         throw new Error(errors.ERROR_USER_ALREADY_EXISTS)
     }
@@ -36,7 +38,7 @@ async function signup(parent, {email, password, name}, {models}) {
         role: USER, // default role is user
         name
     })
-    const token = jwt.sign({ userId: newUser.id }, process.env.APP_SECRET)
+    const token = jwt.sign({userId: newUser.id}, process.env.APP_SECRET)
     return {
         token,
         user: newUser,

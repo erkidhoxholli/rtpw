@@ -5,6 +5,9 @@ import messages from './messages';
 import styled from "styled-components";
 import {useQuery, useMutation} from "@apollo/react-hooks";
 import ListItem from '@rtpw/design-system/ListItem';
+import Pagination from '@rtpw/design-system/Pagination';
+// @ts-ignore
+import ReactPaginate from 'react-paginate';
 
 // @ts-ignore
 import queryAllUsers from './queryAllUsers.graphql';
@@ -26,11 +29,14 @@ const List = styled.div`
 `;
 
 const ListUsersContainer = () => {
+    const [page, setPage] = useState<number>(0)
     const intl = useIntl();
-    const {loading, error, data: userData} = useQuery(queryAllUsers);
+    const {loading, error, data: userData} = useQuery(queryAllUsers, {
+        variables: {page, pageSize: 3},
+    });
 
-    if (loading) return <Spinner/>;
     if (error) return <ErrorMessage message={error.message}/>
+    const pageInfo = userData?.allUsers?.pageInfo
 
     return (
         <Wrapper>
@@ -39,13 +45,17 @@ const ListUsersContainer = () => {
             </Helmet>
             <List>
                 {
-                    userData?.allUsers?.results?.map((user: User) => (
+                    !loading ? userData?.allUsers?.results?.map((user: User) => (
                         <ListItem key={user.id}>
                             <h5>{user.name} {user.email}</h5>
                         </ListItem>
-                    ))
+                    )) : <Spinner/>
                 }
             </List>
+            <Pagination
+                pageCount={pageInfo?.pageCount}
+                onPageChange={(data: any) => setPage(data?.selected)}
+            />
         </Wrapper>
     );
 };

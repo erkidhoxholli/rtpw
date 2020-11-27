@@ -1,0 +1,15 @@
+mutation authLoginUser(
+    $email: EmailAddress!
+    $password: String!
+) {
+    login(
+        email: $email
+        password: $password
+    ) {
+        user {
+            id
+            role
+        }
+        token
+    }
+}

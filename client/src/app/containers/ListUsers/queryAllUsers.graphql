@@ -1,5 +1,8 @@
-query queryAllUsers {
-    allUsers(page: 0, pageSize: 10) {
+query queryAllUsers (
+    $page: Int!
+    $pageSize: Int!
+){
+    allUsers(page: $page, pageSize: $pageSize) {
         pageInfo {
             currentPage
             pageCount

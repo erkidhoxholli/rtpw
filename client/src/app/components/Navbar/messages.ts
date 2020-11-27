@@ -1,4 +1,4 @@
-import { defineMessages } from 'react-intl';
+import {defineMessages} from 'react-intl';
 
 const messages = defineMessages({
     home: {
@@ -16,6 +16,10 @@ const messages = defineMessages({
     users: {
         id: 'components.navbar.users',
         defaultMessage: 'Users',
+    },
+    login: {
+        id: 'components.navbar.login',
+        defaultMessage: 'Login',
     },
 });
 

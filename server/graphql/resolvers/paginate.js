@@ -1,15 +1,13 @@
-function paginate(page, pageSize)
-{
+function paginate(page, pageSize) {
     const offset = page * pageSize;
-    const limit = offset + pageSize;
 
     return {
         offset,
-        limit
+        limit: pageSize
     };
 }
 
-function getPageInfo(page, pageSize, itemCount){
+function getPageInfo(page, pageSize, itemCount) {
     const pageCount = parseInt(itemCount / pageSize)
 
     return {
@@ -24,15 +22,16 @@ function getPageInfo(page, pageSize, itemCount){
 
 
 async function getPaginatedModelData(model, page = 0, pageSize = 10) {
-        const withPagination = paginate(page, pageSize)
-        const results = await model.findAll(withPagination)
-        const itemCount = await model.count()
+    const withPagination = paginate(page, pageSize)
+    const results = await model.findAll(withPagination)
+    const itemCount = await model.count()
 
-        return {
-            pageInfo: getPageInfo(page, pageSize, itemCount),
-            results
-        };
+    return {
+        pageInfo: getPageInfo(page, pageSize, itemCount),
+        results
+    };
 }
+
 module.exports = {
     getPaginatedModelData
 }

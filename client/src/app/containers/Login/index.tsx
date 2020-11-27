@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import {Helmet} from 'react-helmet';
 import {useIntl, FormattedMessage} from 'react-intl';
 import messages from './messages';
 import styled from "styled-components";
 import {Form} from "./Form";
 import {useForm, FormProvider} from "react-hook-form";
-import {useQuery, useMutation} from "@apollo/react-hooks";
+import {useMutation} from "@apollo/react-hooks";
 // @ts-ignore
-import queryAllUsers from '../ListUsers/queryAllUsers.graphql';
-// @ts-ignore
-import authSignupUser from './authSignupUser.graphql';
+import authLoginUser from './authLoginUser.graphql';
 
 
 const Wrapper = styled.div`
@@ -22,27 +20,30 @@ const Wrapper = styled.div`
 
 
 interface Signup {
-    name: string
     email: string
     password: string
 }
 
 const defaultValues = {
-    name: '',
     email: '',
     password: ''
 }
 
-const SignupContainer = () => {
+const LoginContainer = () => {
     const intl = useIntl();
-    const [createUser] = useMutation(authSignupUser);
+    const [loginUser, {data: authResponse}] = useMutation(authLoginUser);
     const methods = useForm({defaultValues});
+
+    useEffect(() => {
+        console.log({authResponse})
+        if (authResponse) window.localStorage.setItem('token', authResponse?.login?.token)
+    }, [authResponse])
 
     const onSubmit = (evt: any) => {
         evt.preventDefault()
         methods.handleSubmit((data: Signup) => {
-            const {email, password, name} = data
-            createUser({variables: {email, password, name}, refetchQueries: [{query: queryAllUsers}]});
+            const {email, password} = data
+            loginUser({variables: {email, password}});
         })(evt)
     }
 
@@ -58,4 +59,4 @@ const SignupContainer = () => {
     );
 };
 
-export default SignupContainer;
+export default LoginContainer;
