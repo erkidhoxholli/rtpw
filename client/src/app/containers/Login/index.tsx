@@ -36,7 +36,10 @@ const LoginContainer = () => {
 
     useEffect(() => {
         console.log({authResponse})
-        if (authResponse) window.localStorage.setItem('token', authResponse?.login?.token)
+        if (authResponse) {
+            window.localStorage.setItem('token', authResponse?.login?.token)
+            window.location.reload()
+        }
     }, [authResponse])
 
     const onSubmit = (evt: any) => {

@@ -11,7 +11,7 @@ const messages = defineMessages({
     },
     signup: {
         id: 'components.navbar.signup',
-        defaultMessage: 'New account',
+        defaultMessage: 'Sign up',
     },
     users: {
         id: 'components.navbar.users',

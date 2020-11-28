@@ -45,7 +45,23 @@ async function signup(parent, {email, password, name}, {models}) {
     }
 }
 
+async function viewer(parent, _args, {models, authScope}) {
+    // TODO: use uuid instead
+    if (!authScope) {
+        return {
+            id: null,
+            role: null
+        }
+    }
+    const {id, role} = await models.User.findOne({where: {id: authScope.userId}})
+    return {
+        id,
+        role
+    }
+}
+
 module.exports = {
     login,
-    signup
+    signup,
+    viewer
 }

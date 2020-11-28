@@ -25,6 +25,10 @@ const Wrapper = styled.nav`
     }
 `;
 
+const RightMenu = styled.div`
+  display: flex;
+`
+
 type LinkProps = {
     theme: Theme;
     active: number; // https://github.com/styled-components/styled-components/issues/1198
@@ -36,7 +40,11 @@ const StyledLink = styled(Link)`
 
 const MainMenu = styled.div``;
 
-export const Navbar = () => {
+type NavProps = {
+    isAuthenticated: boolean
+    isAdmin: boolean
+}
+export const Navbar = ({isAuthenticated, isAdmin}: NavProps) => {
     const {pathname} = useLocation();
 
     return (
@@ -48,18 +56,29 @@ export const Navbar = () => {
                 <StyledLink to="/about" active={pathname === '/about' ? 1 : 0}>
                     <FormattedMessage {...messages.about} />
                 </StyledLink>
-                <StyledLink to="/register" active={pathname === '/register' ? 1 : 0}>
-                    <FormattedMessage {...messages.signup} />
-                </StyledLink>
-                <StyledLink to="/users" active={pathname === '/users' ? 1 : 0}>
-                    <FormattedMessage {...messages.users} />
-                </StyledLink>
-                <StyledLink to="/login" active={pathname === '/login' ? 1 : 0}>
-                    <FormattedMessage {...messages.login} />
-                </StyledLink>
+
+                {
+                    !isAuthenticated && <StyledLink to="/register" active={pathname === '/register' ? 1 : 0}>
+                        <FormattedMessage {...messages.signup} />
+                    </StyledLink>
+                }
+
+                {
+                    isAdmin && <StyledLink to="/users" active={pathname === '/users' ? 1 : 0}>
+                        <FormattedMessage {...messages.users} />
+                    </StyledLink>
+                }
+                {
+                    !isAuthenticated && <StyledLink to="/login" active={pathname === '/login' ? 1 : 0}>
+                        <FormattedMessage {...messages.login} />
+                    </StyledLink>
+                }
+
             </MainMenu>
-            <LanguageSwitcher/>
-            <ThemeSwitcher/>
+            <RightMenu>
+                <LanguageSwitcher/>
+                <ThemeSwitcher/>
+            </RightMenu>
         </Wrapper>
     );
 };

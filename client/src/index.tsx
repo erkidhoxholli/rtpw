@@ -11,6 +11,7 @@ import graphQLClient from './app/utils/client.graphql';
 import {ThemeProvider} from 'styled-components';
 import {LanguageConsumer, LanguageProvider} from "./app/context/LanguageContext";
 import {ThemeConsumer, ThemeChangeProvider} from "./app/context/ThemeContext";
+import {AuthConsumer, AuthProvider} from "./app/context/AuthContext";
 
 const messages = {
     en: enTranslations,
@@ -23,20 +24,27 @@ ReactDOM.render(
             {({language}) => (
                 <IntlProvider locale={language} messages={messages[language]}>
                     <ThemeChangeProvider>
-                    <ThemeConsumer>
-                        {({theme}) => (
-                            <ThemeProvider theme={theme}>
-                                <ErrorBoundary>
-                                    <ApolloProvider client={graphQLClient}>
-                                        <Router>
-                                            <App/>
-                                        </Router>
-                                    </ApolloProvider>
-                                </ErrorBoundary>
+                        <ThemeConsumer>
+                            {({theme}) => (
+                                <ThemeProvider theme={theme}>
+                                    <ErrorBoundary>
+                                        <ApolloProvider client={graphQLClient}>
+                                            <AuthProvider>
+                                                <AuthConsumer>
+                                                    {(data) => (
+                                                        <Router>
+                                                            <App isAuthenticated={data?.isAuthenticated}
+                                                                 isAdmin={data?.isAdmin}/>
+                                                        </Router>
+                                                    )}
+                                                </AuthConsumer>
+                                            </AuthProvider>
+                                        </ApolloProvider>
+                                    </ErrorBoundary>
 
-                            </ThemeProvider>
-                        )}
-                    </ThemeConsumer>
+                                </ThemeProvider>
+                            )}
+                        </ThemeConsumer>
                     </ThemeChangeProvider>
                 </IntlProvider>
             )}

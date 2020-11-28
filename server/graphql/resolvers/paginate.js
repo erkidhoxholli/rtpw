@@ -7,6 +7,7 @@ function paginate(page, pageSize) {
     };
 }
 
+// TODO: pass currentItemsAcount and improve hasNextPage or prev
 function getPageInfo(page, pageSize, itemCount) {
     const pageCount = parseInt(itemCount / pageSize)
 

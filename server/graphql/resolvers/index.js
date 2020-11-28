@@ -1,16 +1,17 @@
 const authResolvers = require('./auth')
 const userResolvers = require('./user')
 const recipeResolvers = require('./recipe')
-const { resolvers }  = require('graphql-scalars');
+const {resolvers} = require('graphql-scalars');
 
-const { EmailAddress } = resolvers
+const {EmailAddress} = resolvers
 const index = {
     EmailAddress,
     Query: {
         allUsers: userResolvers.allUsers,
         user: userResolvers.user,
         allRecipes: recipeResolvers.allRecipes,
-        recipe: recipeResolvers.recipe
+        recipe: recipeResolvers.recipe,
+        viewer: authResolvers.viewer,
     },
     Mutation: {
         createUser: userResolvers.createUser,

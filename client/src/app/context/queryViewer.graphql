@@ -1,0 +1,6 @@
+query queryViewer {
+    viewer {
+        id
+        role
+    }
+}

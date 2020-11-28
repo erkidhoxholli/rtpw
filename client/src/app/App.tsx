@@ -1,5 +1,5 @@
 import React, {lazy, Suspense} from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Redirect} from 'react-router-dom';
 
 import {Navbar} from './components/Navbar';
 import ResponsiveContainer from '@rtpw/design-system/ResponsiveContainer';
@@ -12,17 +12,41 @@ const SignupContainer = lazy(() => import('./containers/Signup'));
 const LoginContainer = lazy(() => import('./containers/Login'));
 const ListUsersContainer = lazy(() => import('./containers/ListUsers'));
 
-const App = () => (
+type AppProps = {
+    isAuthenticated: boolean
+    isAdmin: boolean
+}
+
+const PrivateRoute = ({component, isAuthenticated, ...rest}: any) => {
+    const routeComponent = (props: any) => (
+        isAuthenticated
+            ? React.createElement(component, props)
+            : <Redirect to={{pathname: '/login'}}/>
+    );
+    return <Route {...rest} render={routeComponent}/>;
+};
+
+const GuestRoute = ({component, isAuthenticated, ...rest}: any) => {
+    const routeComponent = (props: any) => (
+        isAuthenticated
+            ? <Redirect to={{pathname: '/'}}/>
+            : React.createElement(component, props)
+    );
+    return <Route {...rest} render={routeComponent}/>;
+};
+
+// TODO: protect routes based on authentication
+const App = ({isAuthenticated, isAdmin}: AppProps) => (
     <Suspense fallback={<Spinner/>}>
         <GlobalStyle/>
-        <Navbar/>
+        <Navbar isAuthenticated={isAuthenticated} isAdmin={isAdmin}/>
         <ResponsiveContainer>
             <Switch>
-                <Route exact path="/" component={HomeContainer}/>
-                <Route path="/about" component={AboutContainer}/>
-                <Route path="/register" component={SignupContainer}/>
-                <Route path="/login" component={LoginContainer}/>
-                <Route path="/users" component={ListUsersContainer}/>
+                <GuestRoute isAuthenticated={isAuthenticated} exact path="/" component={HomeContainer}/>
+                <GuestRoute isAuthenticated={isAuthenticated} path="/about" component={AboutContainer}/>
+                <GuestRoute isAuthenticated={isAuthenticated} path="/register" component={SignupContainer}/>
+                <GuestRoute isAuthenticated={isAuthenticated} path="/login" component={LoginContainer}/>
+                <PrivateRoute isAuthenticated={isAuthenticated} path="/users" component={ListUsersContainer}/>
             </Switch>
         </ResponsiveContainer>
     </Suspense>

@@ -32,6 +32,12 @@ type User {
     recipes: [Recipe!]!
 }
 
+## current authenticated user
+type Viewer {
+    id: Int
+    role: String
+}
+
 type Recipe {
     id: Int!
     title: String!
@@ -57,10 +63,11 @@ type AuthPayload {
 #### Queries
 ############################################################################################
 type Query {
-    user(id: Int!): User!
-    allUsers(page:Int, pageSize:Int): UsersConnection!
+    user(id: Int!): User! @isAdmin
+    viewer: Viewer!
+    allUsers(page:Int, pageSize:Int): UsersConnection!  @isAdmin
     allRecipes(page:Int, pageSize:Int): RecipesConnection! @isAdmin
-    recipe(id: Int!): Recipe!
+    recipe(id: Int!): Recipe!  @isAdmin
 }
 
 ############################################################################################
