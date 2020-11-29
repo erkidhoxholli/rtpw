@@ -1,3 +1,4 @@
+// @ts-ignore
 import React from 'react';
 import { styled } from '@rtpw/design-system/constants/theme';
 

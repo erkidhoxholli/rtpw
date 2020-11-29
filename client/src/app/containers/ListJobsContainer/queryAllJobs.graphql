@@ -1,0 +1,20 @@
+query queryAllJobs (
+    $page: Int!
+    $pageSize: Int!
+){
+    allJobs(page: $page, pageSize: $pageSize) {
+        pageInfo {
+            currentPage
+            pageCount
+            perPage
+            itemCount
+            hasNextPage
+            hasPreviousPage
+        }
+        results {
+            id
+            title
+            company
+        }
+    }
+}

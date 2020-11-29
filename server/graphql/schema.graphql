@@ -12,6 +12,11 @@ type UsersConnection {
     pageInfo: PageInfo!
 }
 
+type JobsConnection {
+    results: [Job!]
+    pageInfo: PageInfo!
+}
+
 type RecipesConnection {
     results: [Recipe!]
     pageInfo: PageInfo!
@@ -24,6 +29,13 @@ type RecipesConnection {
 ############################################################################################
 #### General Types
 ############################################################################################
+type Job {
+    id: Int!
+    title: String!
+    company: String!
+}
+
+
 type User {
     id: Int!
     name: String!
@@ -66,6 +78,7 @@ type Query {
     user(id: Int!): User! @isAdmin
     viewer: Viewer!
     allUsers(page:Int, pageSize:Int): UsersConnection!  @isAdmin
+    allJobs(page:Int, pageSize:Int): JobsConnection!
     allRecipes(page:Int, pageSize:Int): RecipesConnection! @isAdmin
     recipe(id: Int!): Recipe!  @isAdmin
 }

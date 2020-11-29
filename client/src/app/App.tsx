@@ -6,7 +6,7 @@ import ResponsiveContainer from '@rtpw/design-system/ResponsiveContainer';
 import GlobalStyle from './components/GlobalStyle';
 import Spinner from '@rtpw/design-system/Spinner';
 
-const HomeContainer = lazy(() => import('./containers/Home'));
+const ListJobsContainer = lazy(() => import('./containers/ListJobsContainer'));
 const AboutContainer = lazy(() => import('./containers/About'));
 const SignupContainer = lazy(() => import('./containers/Signup'));
 const LoginContainer = lazy(() => import('./containers/Login'));
@@ -26,27 +26,17 @@ const PrivateRoute = ({component, isAuthenticated, ...rest}: any) => {
     return <Route {...rest} render={routeComponent}/>;
 };
 
-const GuestRoute = ({component, isAuthenticated, ...rest}: any) => {
-    const routeComponent = (props: any) => (
-        isAuthenticated
-            ? <Redirect to={{pathname: '/'}}/>
-            : React.createElement(component, props)
-    );
-    return <Route {...rest} render={routeComponent}/>;
-};
-
-// TODO: protect routes based on authentication
 const App = ({isAuthenticated, isAdmin}: AppProps) => (
     <Suspense fallback={<Spinner/>}>
         <GlobalStyle/>
         <Navbar isAuthenticated={isAuthenticated} isAdmin={isAdmin}/>
         <ResponsiveContainer>
             <Switch>
-                <GuestRoute isAuthenticated={isAuthenticated} exact path="/" component={HomeContainer}/>
-                <GuestRoute isAuthenticated={isAuthenticated} path="/about" component={AboutContainer}/>
-                <GuestRoute isAuthenticated={isAuthenticated} path="/register" component={SignupContainer}/>
-                <GuestRoute isAuthenticated={isAuthenticated} path="/login" component={LoginContainer}/>
-                <PrivateRoute isAuthenticated={isAuthenticated} path="/users" component={ListUsersContainer}/>
+                <Route exact path="/" component={ListJobsContainer}/>
+                <Route exact path="/about" component={AboutContainer}/>
+                <Route exact path="/register" component={SignupContainer}/>
+                <Route exact path="/login" component={LoginContainer}/>
+                <PrivateRoute isAuthenticated={isAuthenticated} exact path="/users" component={ListUsersContainer}/>
             </Switch>
         </ResponsiveContainer>
     </Suspense>

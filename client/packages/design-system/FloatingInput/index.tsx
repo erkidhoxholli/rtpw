@@ -25,7 +25,6 @@ const Input = styled.input<InputProps>`
   outline: none;
   border-radius: 3px;
   font-size: ${Dimensions.fontSize.medium};
-  width: 100%;
   padding: ${Dimensions.spaces.medium};
   border: 1px solid ${props => props.theme.colors.lightGray || defaultColor};
   ${props => props.hasError && `border-color: ${Colors.errorRed}`};

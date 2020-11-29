@@ -8,6 +8,7 @@ import {useForm, FormProvider} from "react-hook-form";
 import {useMutation} from "@apollo/react-hooks";
 // @ts-ignore
 import authLoginUser from './authLoginUser.graphql';
+import ErrorMessage from "../../../../packages/design-system/ErrorMessage";
 
 
 const Wrapper = styled.div`
@@ -31,7 +32,7 @@ const defaultValues = {
 
 const LoginContainer = () => {
     const intl = useIntl();
-    const [loginUser, {data: authResponse}] = useMutation(authLoginUser);
+    const [loginUser, {data: authResponse, error}] = useMutation(authLoginUser);
     const methods = useForm({defaultValues});
 
     useEffect(() => {
@@ -56,6 +57,7 @@ const LoginContainer = () => {
                 <title>{intl.formatMessage(messages.title)}</title>
             </Helmet>
             <FormProvider {...methods}>
+                {error && <ErrorMessage message={error?.message}/>}
                 <Form onSubmit={onSubmit} {...methods}/>
             </FormProvider>
         </Wrapper>

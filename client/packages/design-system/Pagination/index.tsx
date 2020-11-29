@@ -52,22 +52,27 @@ const Styles = createGlobalStyle`
   }
 `
 
-const Pagination = ({pageCount, onPageChange}: PaginationProps) => (
-    <>
-        <Styles/>
-        <ReactPaginate
-            previousLabel={'<'}
-            nextLabel={'>'}
-            breakLabel={'...'}
-            pageCount={pageCount}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
-            onPageChange={onPageChange}
-            activeClassName={'active'}
-            containerClassName={'pagination'}
-            subContainerClassName={'pages'}
-        />
-    </>
-);
+const Pagination = ({pageCount, onPageChange}: PaginationProps) => {
+    if (pageCount === 0) {
+        return null
+    }
+    return (
+        <>
+            <Styles/>
+            <ReactPaginate
+                previousLabel={'<'}
+                nextLabel={'>'}
+                breakLabel={'...'}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={onPageChange}
+                activeClassName={'active'}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages'}
+            />
+        </>
+    );
+}
 
 export default Pagination;

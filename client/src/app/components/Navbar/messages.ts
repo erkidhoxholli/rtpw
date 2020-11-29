@@ -3,7 +3,7 @@ import {defineMessages} from 'react-intl';
 const messages = defineMessages({
     home: {
         id: 'components.navbar.home',
-        defaultMessage: 'Home',
+        defaultMessage: 'ListJobsContainer',
     },
     about: {
         id: 'components.navbar.about',

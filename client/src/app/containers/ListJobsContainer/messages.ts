@@ -1,9 +1,9 @@
 import { defineMessages } from 'react-intl';
 
 const messages = defineMessages({
-    sortByName: {
-        id: 'components.repos.sortByName',
-        defaultMessage: 'Sort by name:',
+    title: {
+        id: 'containers.home.title',
+        defaultMessage: 'ListJobsContainer',
     },
 });
 

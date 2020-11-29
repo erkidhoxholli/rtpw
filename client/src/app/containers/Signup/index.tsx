@@ -10,6 +10,7 @@ import {useQuery, useMutation} from "@apollo/react-hooks";
 import queryAllUsers from '../ListUsers/queryAllUsers.graphql';
 // @ts-ignore
 import authSignupUser from './authSignupUser.graphql';
+import ErrorMessage from "../../../../packages/design-system/ErrorMessage";
 
 
 const Wrapper = styled.div`
@@ -35,7 +36,7 @@ const defaultValues = {
 
 const SignupContainer = () => {
     const intl = useIntl();
-    const [createUser] = useMutation(authSignupUser);
+    const [createUser, {error}] = useMutation(authSignupUser);
     const methods = useForm({defaultValues});
 
     const onSubmit = (evt: any) => {
@@ -52,6 +53,7 @@ const SignupContainer = () => {
                 <title>{intl.formatMessage(messages.title)}</title>
             </Helmet>
             <FormProvider {...methods}>
+                {error && <ErrorMessage message={error?.message}/>}
                 <Form onSubmit={onSubmit} {...methods}/>
             </FormProvider>
         </Wrapper>

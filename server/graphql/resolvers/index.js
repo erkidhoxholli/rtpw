@@ -1,6 +1,7 @@
 const authResolvers = require('./auth')
 const userResolvers = require('./user')
 const recipeResolvers = require('./recipe')
+const jobResolvers = require('./job')
 const {resolvers} = require('graphql-scalars');
 
 const {EmailAddress} = resolvers
@@ -10,6 +11,7 @@ const index = {
         allUsers: userResolvers.allUsers,
         user: userResolvers.user,
         allRecipes: recipeResolvers.allRecipes,
+        allJobs: jobResolvers.allJobs,
         recipe: recipeResolvers.recipe,
         viewer: authResolvers.viewer,
     },
