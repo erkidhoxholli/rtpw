@@ -13,6 +13,7 @@ import ErrorMessage from "@rtpw/design-system/ErrorMessage";
 import Job from "../../models/Job";
 import GoogleMap from "../../components/GoogleMap";
 import Dimensions from "../../../../packages/design-system/constants/dimensions";
+import {Link} from "react-router-dom";
 
 const Wrapper = styled.div`
     display: flex;
@@ -61,6 +62,7 @@ const ListJobsContainer = () => {
                         !loading ? jobsData?.allJobs?.results?.map((job: Job) => (
                             <ListItem key={job.id}>
                                 <h5>{job.title} {job.company}</h5>
+                                <Link to={`/job/${job.id}`}>View</Link>
                             </ListItem>
                         )) : <Spinner/>
                     }

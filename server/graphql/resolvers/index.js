@@ -12,6 +12,7 @@ const index = {
         user: userResolvers.user,
         allRecipes: recipeResolvers.allRecipes,
         allJobs: jobResolvers.allJobs,
+        job: jobResolvers.job,
         recipe: recipeResolvers.recipe,
         viewer: authResolvers.viewer,
     },

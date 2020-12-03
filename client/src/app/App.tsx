@@ -11,6 +11,7 @@ const AboutContainer = lazy(() => import('./containers/About'));
 const SignupContainer = lazy(() => import('./containers/Signup'));
 const LoginContainer = lazy(() => import('./containers/Login'));
 const ListUsersContainer = lazy(() => import('./containers/ListUsers'));
+const JobPostContainer = lazy(() => import('./containers/JobPostContainer'));
 
 type AppProps = {
     isAuthenticated: boolean
@@ -33,6 +34,7 @@ const App = ({isAuthenticated, isAdmin}: AppProps) => (
         <ResponsiveContainer>
             <Switch>
                 <Route exact path="/" component={ListJobsContainer}/>
+                <Route exact path="/job/:id" component={JobPostContainer}/>
                 <Route exact path="/about" component={AboutContainer}/>
                 <Route exact path="/register" component={SignupContainer}/>
                 <Route exact path="/login" component={LoginContainer}/>

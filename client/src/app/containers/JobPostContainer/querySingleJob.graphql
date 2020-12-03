@@ -1,0 +1,9 @@
+query querySingleJob (
+    $id: Int!
+){
+    job(id: $id) {
+        id
+        title
+        company
+    }
+}

@@ -79,6 +79,7 @@ type Query {
     viewer: Viewer!
     allUsers(page:Int, pageSize:Int): UsersConnection!  @isAdmin
     allJobs(page:Int, pageSize:Int): JobsConnection!
+    job(id: Int!): Job! @isAdmin
     allRecipes(page:Int, pageSize:Int): RecipesConnection! @isAdmin
     recipe(id: Int!): Recipe!  @isAdmin
 }

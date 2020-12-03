@@ -9,7 +9,6 @@ const models = require('./models')
 const authScope = require('./graphql/authScope')
 
 dotenv.config();
-
 const server = new ApolloServer({
     typeDefs,
     resolvers,
